@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivek Kantariya | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f172a',
+            secondary: '#1e293b',
+            accent: '#38bdf8',
+            text: '#f8fafc',
+            light: '#e2e8f0',
+          },
+          fontFamily: {
+            sans: ['Barlow', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-primary text-text font-sans overflow-x-hidden">
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 w-full h-full bg-primary flex justify-center items-center z-[9999]">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-accent mb-4 animate-pulse-slow">Vivek Kantariya</h1>
+      <div class="w-24 h-1 bg-accent mx-auto animate-pulse"></div>
+      <p class="mt-6 text-light opacity-80">Loading portfolio...</p>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full z-50 shadow-lg bg-primary/90 backdrop-blur-md transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold tracking-wider">
+        <a href="#" class="text-white hover:text-accent transition-colors duration-300">
+          Vivek<span class="text-accent">.CV</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+
+      <!-- Center Nav Links -->
+      <nav id="nav-menu" class="hidden md:flex gap-8 text-lg uppercase font-medium tracking-wider">
+        <a href="#home" class="nav-link relative group">Home</a>
+        <a href="#projects" class="nav-link relative group">Projects</a>
+        <a href="#experience" class="nav-link relative group">Experience</a>
+        <a href="#contact" class="nav-link relative group">Contact</a>
+      </nav>
+
+      <!-- Download Button -->
+      <div class="hidden md:block">
+        <button class="download-btn group">
+          <span class="relative z-20">Download CV</span>
+          <span class="download-btn-effect"></span>
+          <span class="download-btn-corner top-left"></span>
+          <span class="download-btn-corner top-right"></span>
+          <span class="download-btn-corner bottom-left"></span>
+          <span class="download-btn-corner bottom-right"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-secondary py-4 px-6">
+      <div class="flex flex-col space-y-4">
+        <a href="#home" class="nav-link-mobile">Home</a>
+        <a href="#projects" class="nav-link-mobile">Projects</a>
+        <a href="#experience" class="nav-link-mobile">Experience</a>
+        <a href="#contact" class="nav-link-mobile">Contact</a>
+        <button class="download-btn-mobile mt-4">
+          Download CV
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section min-h-screen pt-20">
+    <div class="container mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center">
+      <!-- Left Column - Text Content -->
+      <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8">
+        <div class="max-w-lg">
+          <p class="text-accent text-lg mb-4 animate-fade-in">Hello, I'm</p>
+          <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Vivek Kantariya</h1>
+          <h2 class="text-2xl md:text-3xl text-accent mb-8 animate-fade-in delay-100">
+            <span class="typing-animation"></span>
+          </h2>
+          <p class="text-light text-lg mb-8 leading-relaxed animate-fade-in delay-200">
+            I'm a technology enthusiast with expertise in Python, C, Java, and SQL. 
+            As a finalist in the 2023 Hackathon Grand Finale, I thrive in challenging environments. 
+            Currently pursuing BE in Computer Engineering at GEC Rajkot.
+          </p>
+          <div class="flex flex-wrap gap-4 animate-fade-in delay-300">
+            <a href="#contact" class="btn-primary">Get In Touch</a>
+            <a href="#projects" class="btn-secondary">View Projects</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Profile Image -->
+      <div class="md:w-1/2 flex justify-center animate-float">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+          <div class="absolute inset-0 bg-accent/20 rounded-full blur-xl animate-pulse-slow"></div>
+          <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-accent/30">
+            <img src="{% static 'resume/images/photo.jpg' %}" alt="Vivek Kantariya" 
+                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-secondary">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Journey</h2>
+        <div class="w-20 h-1 bg-accent mx-auto"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Dec 2022 - Present</div>
+            <h3 class="timeline-title">Computer Engineering Student</h3>
+            <h4 class="timeline-subtitle">GEC Rajkot</h4>
+            <p class="timeline-description">
+              Pursuing Bachelor's degree with focus on software engineering, systems design, and data structures.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2023</div>
+            <h3 class="timeline-title">Hackathon Finalist</h3>
+            <h4 class="timeline-subtitle">Grand Finale</h4>
+            <p class="timeline-description">
+              Demonstrated problem-solving skills and technical expertise in high-pressure competition environment.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2022 - 2023</div>
+            <h3 class="timeline-title">Internship Experience</h3>
+            <h4 class="timeline-subtitle">Various Companies</h4>
+            <p class="timeline-description">
+              Gained practical experience through two internships, working on real-world projects and solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-primary">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+        <div class="w-20 h-1 bg-accent mx-auto"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="contact-info">
+          <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+          
+          <div class="flex items-start mb-6">
+            <div class="text-accent mr-4 mt-1">
+              <i class="fas fa-envelope text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Email</h4>
+              <a href="mailto:your.email@example.com" class="text-light hover:text-accent transition-colors">
+                vivek@example.com
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start mb-6">
+            <div class="text-accent mr-4 mt-1">
+              <i class="fas fa-phone-alt text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Phone</h4>
+              <a href="tel:+1234567890" class="text-light hover:text-accent transition-colors">
+                +1 (234) 567-890
+              </a>
+            </div>
+          </div>
+
+          <div class="social-links flex space-x-4 mt-8">
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full">
+            Send Message <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="text-light">&copy; 2023 Vivek Kantariya. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-light hover:text-accent transition-colors">Privacy Policy</a>
+          <a href="#" class="text-light hover:text-accent transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 shadow-lg hover:bg-accent/90">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          document.body.classList.add('loaded');
+        }, 1000);
+      }, 2000);
+
+      // Typing animation
+      const typingText = "Software Developer";
+      const typingElement = document.querySelector('.typing-animation');
+      let i = 0;
+      const typingInterval = setInterval(() => {
+        typingElement.textContent += typingText[i];
+        i++;
+        if (i >= typingText.length) {
+          clearInterval(typingInterval);
+        }
+      }, 150);
+    });
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Back to top button
+    window.addEventListener('scroll', () => {
+      const backToTopButton = document.getElementById('back-to-top');
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.opacity = '1';
+        backToTopButton.style.visibility = 'visible';
+      } else {
+        backToTopButton.style.opacity = '0';
+        backToTopButton.style.visibility = 'hidden';
+      }
+    });
+  </script>
+</body>
+</html>
