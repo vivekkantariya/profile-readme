@@ -354,8 +354,8 @@
 
  .project-glass {
    position: relative;
-   width: 280px;
-   height: 320px;
+   width: 320px;
+   height: 400px;
    background: linear-gradient(rgba(255, 255, 255, 0.05), transparent);
    border: 1px solid rgba(255, 255, 255, 0.1);
    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
@@ -412,7 +412,7 @@
  }
 
  .glass-content {
-   padding: 30px;
+   padding: 35px;
    text-align: center;
    transform: translateY(20px);
    transition: 0.5s;
@@ -437,6 +437,159 @@
    .project-glass:not(:last-child) {
      margin-bottom: 40px !important;
    }
+ }
+
+ /* All Projects View - New Design */
+ .all-projects-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+   gap: 40px;
+   width: 100%;
+   margin-top: 40px;
+ }
+
+ .project-tile {
+   position: relative;
+   border-radius: 16px;
+   overflow: hidden;
+   height: 320px;
+   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+ }
+
+ .project-tile:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+ }
+
+ .project-tile::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.8));
+   z-index: 1;
+ }
+
+ .project-image {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   transition: transform 0.5s ease;
+ }
+
+ .project-tile:hover .project-image {
+   transform: scale(1.05);
+ }
+
+ .project-info {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   padding: 25px;
+   z-index: 2;
+   color: white;
+ }
+
+ .project-title {
+   font-size: 1.5rem;
+   font-weight: 600;
+   margin-bottom: 12px;
+ }
+
+ .project-description {
+   font-size: 1rem;
+   opacity: 0.9;
+   margin-bottom: 20px;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+ }
+
+ .project-links {
+   display: flex;
+   gap: 20px;
+ }
+
+ .project-link {
+   color: white;
+   background: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(8px);
+   padding: 8px 16px;
+   border-radius: 24px;
+   font-size: 0.9rem;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   transition: all 0.3s ease;
+ }
+
+ .project-link:hover {
+   background: rgba(255, 255, 255, 0.3);
+   transform: translateY(-3px);
+ }
+
+ .project-tech {
+   display: block;
+   font-size: 0.85rem;
+   margin-bottom: 15px;
+   color: rgba(255, 255, 255, 0.8);
+ }
+
+ /* Responsive adjustments */
+ @media (max-width: 1024px) {
+   .project-glass {
+     width: 320px;
+     height: 380px;
+   }
+ }
+
+ @media (max-width: 768px) {
+   .project-container {
+     flex-direction: column;
+     align-items: center;
+     gap: 30px;
+   }
+
+   .project-glass {
+     margin: 0 !important;
+     transform: rotate(0deg) !important;
+     width: 100%;
+     max-width: 400px;
+     height: 380px;
+   }
+
+   .all-projects-grid {
+     grid-template-columns: 1fr;
+   }
+ }
+
+ @media (max-width: 480px) {
+   .project-glass {
+     height: 400px;
+   }
+
+   .glass-content {
+     padding: 30px;
+   }
+
+   .project-title {
+     font-size: 1.3rem;
+   }
+
+   .project-description {
+     font-size: 0.95rem;
+   }
+ }
+
+ /* Back button style */
+ #back-to-featured {
+   /* display: none; */
+   margin: 30px auto 0;
  }
 
  /* Contact Form */
@@ -791,8 +944,6 @@
    border-radius: 50%;
    position: relative;
    overflow: hidden;
-   animation: blink 5s infinite 2s;
-
  }
 
  .eye.right {
@@ -805,9 +956,10 @@
    height: 8px;
    background: #1a202c;
    border-radius: 50%;
-   top: 4px;
-   left: 4px;
-   transition: all 0.2s ease;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   transition: transform 0.1s ease-out;
  }
 
  .mouth {
@@ -1031,6 +1183,16 @@
    animation-delay: 3s;
  }
 
+
+ .pupil {
+   transition: transform 0.1s ease-out;
+ }
+
+ .character-container {
+   transition: transform 0.3s ease-out;
+ }
+
+
  /* Animations */
 
  @keyframes slideInFromBottom {
@@ -1045,19 +1207,32 @@
    }
  }
 
- @keyframes blink {
+ /* Eye blinking animation */
+ .eye.blinking {
+   animation: blink 0.3s forwards;
+ }
 
-   0%,
-   96%,
-   100% {
+ @keyframes blink {
+   0% {
      height: 16px;
      top: 0;
    }
 
-   98% {
+   50% {
      height: 2px;
      top: 7px;
    }
+
+   100% {
+     height: 16px;
+     top: 0;
+   }
+ }
+
+ /* Ensure pupils stay visible during blink */
+ .eye.blinking .pupil {
+   opacity: 0;
+   transition: opacity 0.15s;
  }
 
  @keyframes float {
