@@ -16,6 +16,8 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <meta name="description" content="Vivek Kantariya - Computer Engineering Student | Python & Java Developer">
   <meta property="og:image" content="preview-image.jpg">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +38,7 @@
 
   <!-- Navbar -->
   <header class="navbar fixed top-0 left-0 w-full z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="max-w mx-auto px-6 py-4 flex justify-between items-center">
       <!-- Logo -->
       <div class="text-2xl font-bold tracking-wider font-heading">
         <a href="#" class="text-white hover:text-accent transition-colors duration-300">
@@ -86,6 +88,7 @@
   <!-- Hero Section -->
   <section id="home" class="hero-section relative">
     <div class="hero-bg-pattern"></div>
+    <div class="tech-sphere-container"></div>
     <div class="particles" id="particles-js"></div>
 
     <div class="container mx-auto px-6 py-32 flex flex-col justify-center">
@@ -108,9 +111,67 @@
         </div>
       </div>
     </div>
+
+    <!-- Replace your hero-character div with this -->
+    <div class="hero-character">
+      <div class="character-container">
+        <!-- Head -->
+        <div class="character-head">
+          <div class="face">
+            <div class="eyes">
+              <div class="eye left">
+                <div class="pupil"></div>
+              </div>
+              <div class="eye right">
+                <div class="pupil"></div>
+              </div>
+            </div>
+            <div class="mouth"></div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="character-body">
+          <div class="laptop">
+            <div class="screen">
+              <div class="code-display">
+                <div class="code-line"><span class="code-keyword">import</span> <span class="code-module">React</span>
+                  <span class="code-keyword">from</span> <span class="code-string">'react'</span>;
+                </div>
+                <div class="code-line"><span class="code-keyword">function</span> <span
+                    class="code-function">App</span>() {</div>
+                <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">return</span> (</div>
+                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div&gt;</span>Hello World<span
+                    class="code-tag">&lt;/div&gt;</span></div>
+                <div class="code-line">&nbsp;&nbsp;)</div>
+                <div class="code-line">}</div>
+              </div>
+              <div class="cursor">|</div>
+            </div>
+            <div class="keyboard"></div>
+          </div>
+        </div>
+
+        <!-- Coffee Cup -->
+        <div class="coffee-cup">
+          <div class="cup"></div>
+          <div class="handle"></div>
+          <div class="steam"></div>
+          <div class="steam delay-1"></div>
+          <div class="steam delay-2"></div>
+        </div>
+
+        <!-- Floating tech icons -->
+        <div class="tech-bubbles">
+          <div class="bubble"><i class="fab fa-react"></i></div>
+          <div class="bubble"><i class="fab fa-node-js"></i></div>
+          <div class="bubble"><i class="fab fa-python"></i></div>
+          <div class="bubble"><i class="fas fa-database"></i></div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Skills Section -->
   <!-- Skills Section -->
   <section id="skills" class="py-20 bg-secondary">
     <div class="container mx-auto px-6">
@@ -326,60 +387,45 @@
         <p class="max-w-2xl mx-auto text-light">Some of my recent work and contributions</p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="project-card hover-card bg-primary rounded-lg overflow-hidden">
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-4">
-              <i class="fas fa-folder text-accent text-3xl"></i>
-              <div class="flex space-x-4">
-                <a href="#" class="text-light hover:text-accent"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-light hover:text-accent"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
+      <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-16 project-container">
+        <!-- Project 1 -->
+        <div class="project-glass" style="--r:-15;" data-text="Hackathon">
+          <div class="glass-content">
+            <i class="fas fa-folder text-accent text-4xl mb-4"></i>
             <h3 class="text-xl font-semibold mb-2">Hackathon Project</h3>
-            <p class="text-light mb-4">Award-winning solution developed during the 2023 Hackathon Grand Finale.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-xs text-accent">Python</span>
-              <span class="text-xs text-accent">Flask</span>
-              <span class="text-xs text-accent">Machine Learning</span>
+            <p class="text-light mb-4 text-sm">Award-winning solution developed during the 2023 Hackathon.</p>
+            <div class="flex justify-center space-x-4 mt-0">
+              <a href="#" class="text-light hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
+              <a href="#" class="text-light hover:text-accent transition-colors"><i
+                  class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="project-card hover-card bg-primary rounded-lg overflow-hidden">
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-4">
-              <i class="fas fa-folder text-accent text-3xl"></i>
-              <div class="flex space-x-4">
-                <a href="#" class="text-light hover:text-accent"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-light hover:text-accent"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
+        <!-- Project 2 -->
+        <div class="project-glass" style="--r:5;" data-text="E-Commerce">
+          <div class="glass-content">
+            <i class="fas fa-folder text-accent text-4xl mb-4"></i>
             <h3 class="text-xl font-semibold mb-2">E-Commerce Platform</h3>
-            <p class="text-light mb-4">Full-stack e-commerce solution with payment integration.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-xs text-accent">Django</span>
-              <span class="text-xs text-accent">React</span>
-              <span class="text-xs text-accent">PostgreSQL</span>
+            <p class="text-light mb-4 text-sm">Full-stack e-commerce solution with payment integration.</p>
+            <div class="flex justify-center space-x-4 mb-10">
+              <a href="#" class="text-light hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
+              <a href="#" class="text-light hover:text-accent transition-colors"><i
+                  class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="project-card hover-card bg-primary rounded-lg overflow-hidden">
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-4">
-              <i class="fas fa-folder text-accent text-3xl"></i>
-              <div class="flex space-x-4">
-                <a href="#" class="text-light hover:text-accent"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-light hover:text-accent"><i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Student Management System</h3>
-            <p class="text-light mb-4">Comprehensive system for educational institutions.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-xs text-accent">Java</span>
-              <span class="text-xs text-accent">Spring Boot</span>
-              <span class="text-xs text-accent">MySQL</span>
+        <!-- Project 3 -->
+        <div class="project-glass" style="--r:25;" data-text="Management">
+          <div class="glass-content">
+            <i class="fas fa-folder text-accent text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Student Management</h3>
+            <p class="text-light mb-4 text-sm">Comprehensive system for educational institutions.</p>
+            <div class="flex justify-center space-x-4 mb-4 ">
+              <a href="#" class="text-light hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
+              <a href="#" class="text-light hover:text-accent transition-colors"><i
+                  class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
@@ -480,26 +526,47 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-secondary py-8 border-t border-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <p class="text-light">&copy; <span id="year"></span> Vivek Kantariya. All rights reserved.</p>
-        </div>
-        <div class="flex space-x-6">
-          <a href="#" class="text-light hover:text-accent transition-colors">Privacy Policy</a>
-          <a href="#" class="text-light hover:text-accent transition-colors">Terms of Service</a>
+  <footer class="footer-section bg-secondary border-t border-gray-800/50">
+    <div class="container mx-auto px-2 py-4">
+      <div class="flex flex-col items-center text-center">
+        <!-- Portfolio Title -->
+        <p class="portfolio-title text-sm font-medium tracking-wider text-gray-300 mb-3">
+          PORTFOLIO
+        </p>
+
+        <!-- Signature -->
+        <div class="signature-content relative inline-flex items-center gap-3 group">
+          <span
+            class="signature-line w-10 h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent transition-all duration-500 group-hover:via-emerald-400"></span>
+
+          <p class="text-light text-sm font-light tracking-wide text-gray-400">
+            Crafted with
+            <i
+              class="fas fa-hand-peace text-blue-400 mx-1.5 transition-all duration-300 hover:rotate-[25deg] hover:scale-110"></i>
+            and
+            <i
+              class="fas fa-code text-emerald-400 mx-1.5 transition-all duration-300 hover:text-emerald-300 hover:scale-110"></i>
+          </p>
+
+          <span
+            class="signature-line w-10 h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent transition-all duration-500 group-hover:via-blue-400"></span>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Auto-update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
 
   <!-- Back to Top Button -->
   <a href="#" id="back-to-top"
     class="fixed bottom-8 right-8 bg-accent text-primary w-12 h-12 rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 shadow-lg hover:bg-accent/90">
     <i class="fas fa-arrow-up"></i>
   </a>
+
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -630,7 +697,172 @@
         }
       });
     });
+
+    /* Interactive Effects */
+    document.querySelector('.character-container').addEventListener('mousemove', (e) => {
+      const container = document.querySelector('.character-container');
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Eye following
+      const eyes = document.querySelectorAll('.pupil');
+      const eyeRadius = 4;
+
+      eyes.forEach(eye => {
+        const eyeRect = eye.parentElement.getBoundingClientRect();
+        const eyeCenterX = eyeRect.left + eyeRect.width / 2 - rect.left;
+        const eyeCenterY = eyeRect.top + eyeRect.height / 2 - rect.top;
+
+        const angle = Math.atan2(y - eyeCenterY, x - eyeCenterX);
+        const distance = Math.min(eyeRadius, Math.sqrt(Math.pow(x - eyeCenterX, 2) + Math.pow(y - eyeCenterY, 2))) / eyeRadius;
+
+        const moveX = distance * Math.cos(angle) * 4;
+        const moveY = distance * Math.sin(angle) * 4;
+
+        eye.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+
+      // Head tilt
+      const tiltX = (centerY - y) / 20;
+      const tiltY = (x - centerX) / 20;
+      container.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    });
+
+    // Random blink function
+    function randomBlink() {
+      const eyes = document.querySelectorAll('.eye');
+      eyes.forEach(eye => {
+        // Reset animation to trigger blink
+        eye.style.animation = 'none';
+        void eye.offsetWidth; // Trigger reflow
+        eye.style.animation = 'blink 0.3s';
+      });
+
+      // Schedule next random blink between 2-8 seconds
+      setTimeout(randomBlink, 2000 + Math.random() * 6000);
+    }
+
+    // Start random blinking after initial animation
+    setTimeout(randomBlink, 3000);
+
+    document.querySelector('.character-container').addEventListener('mouseleave', () => {
+      const container = document.querySelector('.character-container');
+      container.style.transform = 'rotateX(0) rotateY(0)';
+
+      // Reset eyes
+      document.querySelectorAll('.pupil').forEach(eye => {
+        eye.style.transform = 'translate(0, 0)';
+      });
+    });
+
+    // Animate code typing
+    const codeLines = document.querySelectorAll('.code-line');
+    let currentLine = 0;
+
+    function typeCode() {
+      if (currentLine < codeLines.length) {
+        const line = codeLines[currentLine];
+        const text = line.textContent;
+        line.textContent = '';
+        line.style.width = '0';
+        line.style.overflow = 'hidden';
+        line.style.whiteSpace = 'nowrap';
+
+        let i = 0;
+        const typing = setInterval(() => {
+          if (i < text.length) {
+            line.textContent += text.charAt(i);
+            i++;
+          } else {
+            clearInterval(typing);
+            line.style.width = '100%';
+            line.style.overflow = 'visible';
+            line.style.whiteSpace = 'normal';
+            currentLine++;
+            setTimeout(typeCode, 500);
+          }
+        }, 50);
+      } else {
+        // Reset and start again
+        currentLine = 0;
+        setTimeout(typeCode, 2000);
+      }
+    }
+
+    // Start typing animation after page loads
+    setTimeout(typeCode, 1000);
+
+
+
+    // Scroll Animation 
+    // GSAP Scroll Animations
+    function initScrollAnimations() {
+      // Animate sections
+      gsap.utils.toArray("section:not(#home)").forEach(section => {
+        gsap.from(section, {
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          },
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: "power3.out"
+        });
+      });
+
+      // Animate skill cards with stagger
+      gsap.utils.toArray(".skill-card").forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            toggleActions: "play none none none"
+          },
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          delay: i * 0.1,
+          ease: "back.out"
+        });
+      });
+
+      // Timeline items animation
+      gsap.utils.toArray(".timeline-item").forEach(item => {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+          opacity: 0,
+          x: item.classList.contains("left") ? -50 : 50,
+          duration: 0.8,
+          ease: "power3.out"
+        });
+      });
+    }
+
+    // Call this after page loads
+    window.addEventListener('load', () => {
+      // After preloader hides
+      setTimeout(() => {
+        if (typeof gsap !== 'undefined') {
+          gsap.registerPlugin(ScrollTrigger);
+          initScrollAnimations();
+        } else {
+          animateOnScroll(); // Fallback to Intersection Observer
+        }
+      }, 2500);
+    });
   </script>
+
+
 </body>
 
 </html>
