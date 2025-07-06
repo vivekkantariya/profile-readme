@@ -106,6 +106,7 @@
    align-items: center;
    position: relative;
    overflow: hidden;
+   padding: 2rem 0;
  }
 
  .hero-bg-pattern {
@@ -883,23 +884,146 @@
  }
 
  /* 3D Character Styles */
- .hero-character {
-   position: absolute;
-   right: 8%;
-   top: 50%;
-   transform: translateY(-50%);
-   width: 280px;
-   margin-top: 80px;
-   margin-right: 80px;
-   height: 380px;
-   perspective: 1000px;
- }
+
+ .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+@media (min-width: 1024px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .hero-character {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+    margin-right: 0;
+  }
+}
+
+/* Adjust character size on smaller screens */
+@media (max-width: 640px) {
+  .hero-character {
+    max-width: 220px;
+    height: 300px;
+  }
+  
+  .character-head {
+    width: 60px;
+    height: 70px;
+  }
+  
+  .character-body {
+    width: 100px;
+    height: 120px;
+  }
+  
+  .laptop {
+    width: 130px;
+    height: 80px;
+  }
+  
+  .screen {
+    width: 110px;
+    height: 65px;
+    font-size: 6px;
+    line-height: 10px;
+  }
+  
+  .coffee-cup {
+    width: 24px;
+    height: 32px;
+    margin-left: 120px;
+  }
+}
+
+/* Content adjustments for mobile */
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+  }
+  
+  .flex.flex-wrap {
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-character {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Animation adjustments for mobile */
+@media (max-width: 640px) {
+  .fade-in {
+    animation-delay: 0s !important;
+  }
+  
+  .hero-character .character-container {
+    animation: 
+      slideInFromBottom 1s ease-out forwards,
+      float 6s ease-in-out infinite 1s;
+  }
+}
+
+/* Order control for mobile */
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .lg\:order-1 {
+    order: 1;
+  }
+  
+  .lg\:order-2 {
+    order: 2;
+  }
+}
+
+
+/* Character Container - Responsive */
+.hero-character-container {
+  height: 100%;
+  min-height: 300px;
+  margin-top: 30px;
+  /* margin-bottom: 2rem; */
+}
+
+.hero-character {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 380px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
 
  .character-container {
    position: relative;
    width: 100%;
    height: 100%;
-   margin-bottom: 80px;
+   /* margin-bottom: 80px; */
    transform-style: preserve-3d;
    animation:
      slideInFromBottom 1.5s ease-out forwards,
@@ -1068,7 +1192,7 @@
    bottom: 50px;
    margin-bottom: 120px;
    margin-left: 150px;
-   right: 30px;
+   right: 20px;
    z-index: 6;
  }
 
@@ -1110,8 +1234,8 @@
    border: 3px solid #e2e8f0;
    border-left: none;
    border-radius: 0 5px 5px 0;
-   right: -10px;
-   top: 8px;
+   right: -8px;
+   top: 6px;
  }
 
  .steam {

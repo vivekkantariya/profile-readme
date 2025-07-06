@@ -97,12 +97,15 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero-section relative">
+    <!-- Background elements remain the same -->
     <div class="hero-bg-pattern"></div>
     <div class="tech-sphere-container"></div>
     <div class="particles" id="particles-js"></div>
 
-    <div class="container mx-auto px-6 py-32 flex flex-col justify-center">
-      <div class="hero-content max-w-4xl">
+    <!-- New Grid Container -->
+    <div class="container mx-auto px-6 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <!-- Content Column -->
+      <div class="hero-content max-w-4xl order-2 lg:order-1">
         <p class="text-accent text-lg mb-4 fade-in">Hi, my name is</p>
         <h1 class="hero-title font-heading font-bold mb-4 fade-in" style="animation-delay: 0.2s;">Vivek Kantariya.</h1>
         <h2 class="hero-subtitle font-heading font-semibold mb-8 fade-in" style="animation-delay: 0.4s;">
@@ -110,9 +113,9 @@
         </h2>
         <p class="text-light text-lg mb-8 leading-relaxed fade-in" style="animation-delay: 0.6s;">
           <b>Vivek Kantariya</b> is a Computer Engineering student at Government Engineering College (GEC) Rajkot,
-          Gujarat. A
-          2023 SSIP Hackathon Grand Finalist with hands-on experience in Python, Java, MySQL, and Machine Learning. An
-          experienced developer with dual internships, strong problem-solving skills, and deep understanding of Data
+          Gujarat. A 2023 SSIP Hackathon Grand Finalist with hands-on experience in Python, Java, MySQL, and Machine
+          Learning.
+          An experienced developer with dual internships, strong problem-solving skills, and deep understanding of Data
           Structures & Algorithms. Passionate about software development, innovation, and emerging technologies.
         </p>
         <div class="flex flex-wrap gap-4 fade-in" style="animation-delay: 0.8s;">
@@ -120,68 +123,70 @@
           <a href="https://www.github.com/vivekkantariya" class="btn-primary">View Projects</a>
         </div>
       </div>
-    </div>
 
-    <!-- Replace your hero-character div with this -->
-    <div class="hero-character">
-      <div class="character-container">
-        <!-- Head -->
-        <div class="character-head">
-          <div class="face">
-            <div class="eyes">
-              <div class="eye left">
-                <div class="pupil"></div>
-              </div>
-              <div class="eye right">
-                <div class="pupil"></div>
-              </div>
-            </div>
-            <div class="mouth"></div>
-          </div>
-        </div>
-
-        <!-- Body -->
-        <div class="character-body">
-          <div class="laptop">
-            <div class="screen">
-              <div class="code-display">
-                <div class="code-line"><span class="code-keyword">import</span> <span class="code-module">React</span>
-                  <span class="code-keyword">from</span> <span class="code-string">'react'</span>;
+      <!-- Character Column - now part of the grid -->
+      <div class="hero-character-container order-1 lg:order-2 flex justify-center lg:justify-end relative">
+        <div class="hero-character">
+          <div class="character-container">
+            <!-- Head -->
+            <div class="character-head">
+              <div class="face">
+                <div class="eyes">
+                  <div class="eye left">
+                    <div class="pupil"></div>
+                  </div>
+                  <div class="eye right">
+                    <div class="pupil"></div>
+                  </div>
                 </div>
-                <div class="code-line"><span class="code-keyword">function</span> <span
-                    class="code-function">App</span>() {</div>
-                <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">return</span> (</div>
-                <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div&gt;</span>Hello World<span
-                    class="code-tag">&lt;/div&gt;</span></div>
-                <div class="code-line">&nbsp;&nbsp;)</div>
-                <div class="code-line">}</div>
+                <div class="mouth"></div>
               </div>
-              <div class="cursor">|</div>
             </div>
-            <div class="keyboard"></div>
+
+            <!-- Body -->
+            <div class="character-body">
+              <div class="laptop">
+                <div class="screen">
+                  <div class="code-display">
+                    <div class="code-line"><span class="code-keyword">import</span> <span
+                        class="code-module">React</span>
+                      <span class="code-keyword">from</span> <span class="code-string">'react'</span>;
+                    </div>
+                    <div class="code-line"><span class="code-keyword">function</span> <span
+                        class="code-function">App</span>() {</div>
+                    <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">return</span> (</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;div&gt;</span>Hello
+                      World<span class="code-tag">&lt;/div&gt;</span></div>
+                    <div class="code-line">&nbsp;&nbsp;)</div>
+                    <div class="code-line">}</div>
+                  </div>
+                  <div class="cursor">|</div>
+                </div>
+                <div class="keyboard"></div>
+              </div>
+            </div>
+
+            <!-- Coffee Cup -->
+            <div class="coffee-cup">
+              <div class="cup"></div>
+              <div class="handle"></div>
+              <div class="steam"></div>
+              <div class="steam delay-1"></div>
+              <div class="steam delay-2"></div>
+            </div>
+
+            <!-- Floating tech icons -->
+            <div class="tech-bubbles">
+              <div class="bubble"><i class="fab fa-react"></i></div>
+              <div class="bubble"><i class="fab fa-node-js"></i></div>
+              <div class="bubble"><i class="fab fa-python"></i></div>
+              <div class="bubble"><i class="fas fa-database"></i></div>
+            </div>
           </div>
-        </div>
-
-        <!-- Coffee Cup -->
-        <div class="coffee-cup">
-          <div class="cup"></div>
-          <div class="handle"></div>
-          <div class="steam"></div>
-          <div class="steam delay-1"></div>
-          <div class="steam delay-2"></div>
-        </div>
-
-        <!-- Floating tech icons -->
-        <div class="tech-bubbles">
-          <div class="bubble"><i class="fab fa-react"></i></div>
-          <div class="bubble"><i class="fab fa-node-js"></i></div>
-          <div class="bubble"><i class="fab fa-python"></i></div>
-          <div class="bubble"><i class="fas fa-database"></i></div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Skills Section -->
   <section id="skills" class="py-20 bg-secondary">
     <div class="container mx-auto px-6">
